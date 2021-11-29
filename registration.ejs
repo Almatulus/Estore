@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/head'); %>
+<body>
+    <%- include('includes/nav'); %>
+   <div class="container">
+     <h2>Регистрация</h2>
+    
+     <% if(typeof alert != 'undefined') { %>
+      <% alert.forEach(function(error) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <%= error.msg %>
+              
+            </div>
+      <% }) %>
+  <% } %>
+    
+    <form method="POST" action="/registration">
+      <div class="mb-3">
+        <label for="name" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="secondname" class="form-label">Фамилия</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="secondname">
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Моб. Телефон</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="phone" value="<%= locals.email ? email : ''  %>">
+        
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Электронная почта</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Пароль</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="password">
+      </div>
+      <div class="mb-3">
+        <label for="confirmpassword" class="form-label">Подтвердите пароль</label>
+        <input type="confirmpassword" class="form-control" id="exampleInputPassword1" name="confirmpassword">
+      </div>
+      <button type="submit" class="btn btn-primary">Подтвердить</button>
+    </form>
+   </div>
+</body>
+</html>
